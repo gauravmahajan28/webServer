@@ -1,0 +1,6 @@
+http://javarevisited.blogspot.in/2015/06/how-to-create-http-server-in-java-serversocket-example.html
+https://stackoverflow.com/questions/10638848/trouble-sending-http-response-with-java-socket
+
+
+
+
