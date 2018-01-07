@@ -37,13 +37,13 @@ public class ServerImplementation implements Server {
 	/**
 	 * accept client connections
 	 */
-	public void acceptClientConnections() throws Exception {
+	public void acceptClientConnections(String rootDirectory) throws Exception {
 		// TODO Auto-generated method stub
 		while (true)
 		{
 		      // spin forever
 			final Socket client = serverSocket.accept();
-			Thread thread = new HandleIncomingRequest(client);
+			Thread thread = new HandleIncomingRequest(client, rootDirectory);
 			pool.execute(thread);
 		//	thread.start();
 		 }

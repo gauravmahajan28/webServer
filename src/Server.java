@@ -7,6 +7,6 @@ public interface Server {
 	
 	public void createThreadPool(int numberOfThreads) throws Exception;
 	
-	public void acceptClientConnections() throws Exception;
+	public void acceptClientConnections(String rootDirectory) throws Exception;
 	
 }

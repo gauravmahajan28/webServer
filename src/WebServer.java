@@ -18,13 +18,16 @@ public class WebServer
 	{
 		try
 		{
+			System.out.println("hello");
+			System.out.println(args[0]);
 			ServerImplementation serverImplementation = new ServerImplementation();
 			serverImplementation.createServerSocket(8086);
 			serverImplementation.createThreadPool(5);
-			serverImplementation.acceptClientConnections();
+			serverImplementation.acceptClientConnections(args[0]);
 		}
 		catch(Exception e)
 		{
+			System.out.println("error");
 		    // add code to handle server crashing	
 		}
 	}
