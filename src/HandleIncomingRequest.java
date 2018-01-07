@@ -83,6 +83,9 @@ public class HandleIncomingRequest extends Thread implements IncomingRequestHand
 			
 	}
 
+	/**
+	 * return url file name  e.g. given "GET /index.html http/1.1" , this method returns /index.html
+	 */
 	public String getFileName(BufferedReader bufferedReader) throws Exception {
 		// TODO Auto-generated method stub
 		

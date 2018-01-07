@@ -18,16 +18,15 @@ public class WebServer
 	{
 		try
 		{
-			System.out.println("hello");
-			System.out.println(args[0]);
+			//System.out.println(args[0]);   // args[0] is root directory
 			ServerImplementation serverImplementation = new ServerImplementation();
-			serverImplementation.createServerSocket(8086);
-			serverImplementation.createThreadPool(5);
+			serverImplementation.createServerSocket(8086); // port number
+			serverImplementation.createThreadPool(5); // number of threads in thread pool
 			serverImplementation.acceptClientConnections(args[0]);
 		}
 		catch(Exception e)
 		{
-			System.out.println("error");
+			System.out.println("error");  // not found error handled inside
 		    // add code to handle server crashing	
 		}
 	}
