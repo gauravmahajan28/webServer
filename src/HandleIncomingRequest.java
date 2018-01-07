@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.InputStreamReader;
@@ -50,11 +51,19 @@ public class HandleIncomingRequest extends Thread implements IncomingRequestHand
 	          //  + "Content-type: " + getMimeType(file) + "; charset=UTF-8\n"+
 	           + "Content-Length: " +  file.length() +"\n\n";
 			socket.getOutputStream().write(res.getBytes());
+			FileInputStream fileInputStream = new FileInputStream(file);
+			final int BUFFER_SIZE = 1024;
+			byte[] buffer = new byte[BUFFER_SIZE];
+			int read = 0;
+			while((read = fileInputStream.read(buffer)) > 0)
+			{
+				socket.getOutputStream().write(buffer);
+			}
+			//byte[] data = Files.readAllBytes(file.toPath());
 			
-			byte[] data = Files.readAllBytes(file.toPath());
 	       //     + "<html><body>OK</body></html>";
 
-			socket.getOutputStream().write(data);
+		//	socket.getOutputStream().write(data);
 			socket.close();
 		}
 		catch(FileNotFoundException e)
